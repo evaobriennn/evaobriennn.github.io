@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utah Landmark Guessing Game</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #1a3a2a;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 6px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #74c69d;
+      margin-bottom: 30px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    #game-card {
+      background: white;
+      color: #222;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 620px;
+      width: 100%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    #score-bar {
+      display: flex;
+      justify-content: space-between;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    #score-bar span { font-weight: bold; color: #2d6a4f; }
+
+    #clue-number {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+
+    #clue-text {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #1a3a2a;
+      min-height: 60px;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    #options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      background: #f5f0e8;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 14px 10px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      color: #222;
+      text-align: center;
+    }
+
+    .option-btn:hover { background: #e8f5ee; border-color: #2d6a4f; }
+    .option-btn.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+    .option-btn.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+    .option-btn:disabled { cursor: default; }
+
+    #feedback {
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      min-height: 28px;
+      margin-bottom: 16px;
+      font-weight: bold;
+      color: #2d6a4f;
+    }
+
+    #next-btn, #restart-btn {
+      background: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      display: none;
+    }
+
+    #next-btn:hover, #restart-btn:hover { background: #1a3a2a; }
+
+    #result-screen {
+      display: none;
+      text-align: center;
+    }
+
+    #result-screen h2 { font-size: 1.8rem; color: #1a3a2a; margin-bottom: 10px; }
+    #result-screen p { font-family: Arial, sans-serif; color: #555; margin-bottom: 20px; }
+    #final-score { font-size: 2.5rem; font-weight: bold; color: #2d6a4f; margin: 10px 0; }
+
+    .back-link {
+      margin-top: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .back-link a { color: #74c69d; text-decoration: none; }
+    .back-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <h1>🏔️ Utah Landmark Quiz</h1>
+  <p class="subtitle">How well do you know Utah's most iconic places?</p>
+
+  <div id="game-card">
+
+    <!-- Quiz screen -->
+    <div id="quiz-screen">
+      <div id="score-bar">
+        <div>Question <span id="q-num">1</span> of 8</div>
+        <div>Score: <span id="score">0</span></div>
+      </div>
+      <div id="clue-number">Clue</div>
+      <div id="clue-text"></div>
+      <div id="options"></div>
+      <div id="feedback"></div>
+      <button id="next-btn" onclick="nextQuestion()">Next →</button>
+    </div>
+
+    <!-- Result screen -->
+    <div id="result-screen">
+      <h2>Quiz Complete!</h2>
+      <div id="final-score"></div>
+      <p id="result-message"></p>
+      <button id="restart-btn" onclick="restartGame()">Play Again</button>
+    </div>
+
+  </div>
+
+  <div class="back-link">
+    <a href="scratch.html">← Back to Utah Outdoors</a>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        clue: "This park is home to more than 2,000 natural stone arches, including the famous Delicate Arch that appears on Utah's license plate.",
+        answer: "Arches National Park",
+        options: ["Canyonlands National Park", "Arches National Park", "Capitol Reef National Park", "Bryce Canyon National Park"]
+      },
+      {
+        clue: "Known for its tall pink and red rock formations called hoodoos, this park near Panguitch has one of the darkest night skies in the country.",
+        answer: "Bryce Canyon National Park",
+        options: ["Zion National Park", "Goblin Valley", "Bryce Canyon National Park", "Dead Horse Point"]
+      },
+      {
+        clue: "Hikers can wade directly through a slot canyon carved by the Virgin River in this park, in a famous trail called The Narrows.",
+        answer: "Zion National Park",
+        options: ["Zion National Park", "Antelope Canyon", "Capitol Reef", "Arches National Park"]
+      },
+      {
+        clue: "This peak is the highest point in the Wasatch Mountain Range, rising to 11,928 feet, and sits near Payson, Utah.",
+        answer: "Mount Nebo",
+        options: ["Mount Timpanogos", "Mount Nebo", "Mount Olympus", "Kings Peak"]
+      },
+      {
+        clue: "At 13,528 feet, this is the highest point in Utah, located in the Uinta Mountains.",
+        answer: "Kings Peak",
+        options: ["Mount Nebo", "Mount Timpanogos", "Kings Peak", "Mount Peale"]
+      },
+      {
+        clue: "This state park sits on a mesa 2,000 feet above the Colorado River canyon and offers one of the most dramatic viewpoints in Utah.",
+        answer: "Dead Horse Point State Park",
+        options: ["Goblin Valley State Park", "Dead Horse Point State Park", "Antelope Island State Park", "Snow Canyon State Park"]
+      },
+      {
+        clue: "Located in the Great Salt Lake, this is one of the largest freshwater islands in the US and is home to bison herds.",
+        answer: "Antelope Island State Park",
+        options: ["Antelope Island State Park", "Bear Lake", "Flaming Gorge", "Dead Horse Point State Park"]
+      },
+      {
+        clue: "This national park in southeastern Utah features Island in the Sky, The Needles, and The Maze — three very different districts.",
+        answer: "Canyonlands National Park",
+        options: ["Arches National Park", "Capitol Reef National Park", "Canyonlands National Park", "Zion National Park"]
+      }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    let answered = false;
+
+    function shuffle(arr) {
+      return arr.sort(() => Math.random() - 0.5);
+    }
+
+    function loadQuestion() {
+      answered = false;
+      const q = questions[currentQ];
+      document.getElementById('q-num').textContent = currentQ + 1;
+      document.getElementById('score').textContent = score;
+      document.getElementById('clue-text').textContent = q.clue;
+      document.getElementById('feedback').textContent = '';
+      document.getElementById('next-btn').style.display = 'none';
+
+      const optionsDiv = document.getElementById('options');
+      optionsDiv.innerHTML = '';
+      shuffle([...q.options]).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(opt, btn);
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected, btn) {
+      if (answered) return;
+      answered = true;
+
+      const correct = questions[currentQ].answer;
+      const allBtns = document.querySelectorAll('.option-btn');
+
+      allBtns.forEach(b => {
+        b.disabled = true;
+        if (b.textContent === correct) b.classList.add('correct');
+      });
+
+      if (selected === correct) {
+        score++;
+        document.getElementById('score').textContent = score;
+        document.getElementById('feedback').textContent = '✓ Correct!';
+        document.getElementById('feedback').style.color = '#28a745';
+      } else {
+        btn.classList.add('wrong');
+        document.getElementById('feedback').textContent = '✗ The answer was: ' + correct;
+        document.getElementById('feedback').style.color = '#dc3545';
+      }
+
+      document.getElementById('next-btn').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      if (currentQ >= questions.length) {
+        showResult();
+      } else {
+        loadQuestion();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz-screen').style.display = 'none';
+      document.getElementById('result-screen').style.display = 'block';
+      document.getElementById('final-score').textContent = score + ' / ' + questions.length;
+      document.getElementById('restart-btn').style.display = 'inline-block';
+
+      let msg = '';
+      if (score === 8) msg = "Perfect score! You really know your Utah landmarks!";
+      else if (score >= 6) msg = "Great job! You know Utah pretty well.";
+      else if (score >= 4) msg = "Not bad! Time to plan a few more Utah road trips.";
+      else msg = "Keep exploring Utah — there's so much to discover!";
+      document.getElementById('result-message').textContent = msg;
+    }
+
+    function restartGame() {
+      currentQ = 0;
+      score = 0;
+      document.getElementById('quiz-screen').style.display = 'block';
+      document.getElementById('result-screen').style.display = 'none';
+      loadQuestion();
+    }
+
+    // Start the game
+    loadQuestion();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+/* scratch.css – Custom stylesheet for Utah Outdoors page */
+
+/* ── Base ── */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #f5f0e8;
+  color: #2c2c2c;
+}
+
+/* ── Header ── */
+#header {
+  background-color: #2d6a4f;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Zion_angels_landing_view.jpg/1280px-Zion_angels_landing_view.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 80px 20px 50px;
+}
+
+#header h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  font-style: italic;
+}
+
+/* ── Navigation ── */
+#scratch-nav {
+  margin-top: 30px;
+}
+
+#scratch-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 2px;
+}
+
+#scratch-nav a:hover {
+  border-bottom-color: white;
+}
+
+/* ── Content Blocks ── */
+.content-block {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.content-block h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: #1a3a2a;
+  border-left: 5px solid #2d6a4f;
+  padding-left: 14px;
+  margin-bottom: 20px;
+}
+
+/* ── Lists ── */
+.main-list {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #2c2c2c;
+}
+
+.sub-list {
+  font-size: 0.93rem;
+  color: #555;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/* ── Photos ── */
+#image-section {
+  background-color: #e8f0eb;
+  max-width: 100%;
+  padding: 50px 40px;
+}
+
+#image-section h2 {
+  max-width: 860px;
+  margin: 0 auto 24px;
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: #1a3a2a;
+  border-left: 5px solid #2d6a4f;
+  padding-left: 14px;
+}
+
+#photo-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.photo-card {
+  text-align: center;
+  width: 260px;
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.photo-caption {
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ── Tips ── */
+#tips-section {
+  background-color: #fff;
+  max-width: 100%;
+  padding: 50px 40px;
+}
+
+#tips-section h2 {
+  max-width: 860px;
+  margin: 0 auto 24px;
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: #1a3a2a;
+  border-left: 5px solid #2d6a4f;
+  padding-left: 14px;
+}
+
+#tips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.tip-box {
+  background: #f5f0e8;
+  border-radius: 8px;
+  padding: 20px 24px;
+  width: calc(50% - 10px);
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.tip-box h3 {
+  font-size: 1rem;
+  color: #1a3a2a;
+  margin-top: 0;
+}
+
+.tip-box p {
+  font-size: 0.93rem;
+  color: #444;
+  margin: 0;
+}
+
+/* ── Video ── */
+#video-section {
+  background-color: #1a3a2a;
+  color: white;
+  max-width: 100%;
+  padding: 50px 40px;
+  text-align: center;
+}
+
+#video-section h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: white;
+  border-left: 5px solid #74c69d;
+  padding-left: 14px;
+  text-align: left;
+  max-width: 860px;
+  margin: 0 auto 10px;
+}
+
+#video-section p {
+  font-family: Arial, sans-serif;
+  color: rgba(255,255,255,0.8);
+  max-width: 860px;
+  margin: 0 auto 20px;
+  text-align: left;
+}
+
+#video-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#video-wrapper iframe {
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* ── Tableau ── */
+#tableau-section {
+  background-color: #f5f0e8;
+}
+
+/* ── Footer ── */
+#footer {
+  background-color: #1a3a2a;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+#footer a {
+  color: #74c69d;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}

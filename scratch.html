@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utah Outdoors – Eva O'Brien</title>
+  <link rel="stylesheet" href="scratch.css" />
+</head>
+<body>
+
+  <!-- On-page anchor target -->
+  <a name="top"></a>
+
+  <div id="header">
+    <h1>Utah Outdoors</h1>
+    <p class="tagline">Red rocks, mountain peaks, and wide open skies</p>
+    <nav id="scratch-nav">
+      <a href="#favorites">My Favorites</a>
+      <a href="#tips">Trail Tips</a>
+      <a href="#video">Watch</a>
+      <a href="#tableau">Data</a>
+      <a href="app.html">Try the Game</a>
+      <a href="index.html">← Back to Resume</a>
+    </nav>
+  </div>
+
+  <!-- Favorites Section -->
+  <a name="favorites"></a>
+  <div id="favorites-section" class="content-block">
+    <h2>My Favorite Places</h2>
+    <p>Utah is home to some of the most breathtaking landscapes in the country. Here are a few of my favorites:</p>
+
+    <!-- Ordered list with embedded unordered list -->
+    <ol class="main-list">
+      <li>
+        <strong>Zion National Park</strong>
+        <ul class="sub-list">
+          <li>Angels Landing – a bucket list hike</li>
+          <li>The Narrows – hiking through the Virgin River</li>
+          <li>Emerald Pools Trail – great for all skill levels</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Bryce Canyon National Park</strong>
+        <ul class="sub-list">
+          <li>Sunrise Point – stunning at dawn</li>
+          <li>Queens Garden Trail – walk among the hoodoos</li>
+          <li>Stargazing – one of the darkest skies in the US</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Mount Nebo</strong>
+        <ul class="sub-list">
+          <li>Highest peak in the Wasatch Range</li>
+          <li>Payson Lakes – perfect for a summer day</li>
+          <li>Wildflowers in late July are incredible</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Arches National Park</strong>
+        <ul class="sub-list">
+          <li>Delicate Arch – iconic Utah landmark</li>
+          <li>Landscape Arch – longest natural arch in North America</li>
+          <li>Devil's Garden Trail – a full day adventure</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Image Section -->
+  <div id="image-section" class="content-block">
+    <h2>The Beauty of Utah</h2>
+    <div id="photo-row">
+      <div class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Zion_angels_landing_view.jpg/640px-Zion_angels_landing_view.jpg" alt="Zion National Park" />
+        <p class="photo-caption">Zion National Park</p>
+      </div>
+      <div class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Delicate_Arch_LaSalle_Mountains.jpg/640px-Delicate_Arch_LaSalle_Mountains.jpg" alt="Delicate Arch" />
+        <p class="photo-caption">Delicate Arch, Arches NP</p>
+      </div>
+      <div class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Bryce_Canyon_hoodoos_Amphitheater.jpg/640px-Bryce_Canyon_hoodoos_Amphitheater.jpg" alt="Bryce Canyon" />
+        <p class="photo-caption">Bryce Canyon Hoodoos</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trail Tips -->
+  <a name="tips"></a>
+  <div id="tips-section" class="content-block">
+    <h2>Trail Tips</h2>
+    <div id="tips-grid">
+      <div class="tip-box">
+        <h3>🥾 Gear Up</h3>
+        <p>Wear sturdy hiking boots with ankle support. Utah trails can be rocky and uneven.</p>
+      </div>
+      <div class="tip-box">
+        <h3>💧 Stay Hydrated</h3>
+        <p>Bring more water than you think you need. The dry desert air dehydrates you faster than you expect.</p>
+      </div>
+      <div class="tip-box">
+        <h3>🌅 Go Early</h3>
+        <p>Start hikes before 8am to beat the heat and the crowds, especially in summer.</p>
+      </div>
+      <div class="tip-box">
+        <h3>🗺️ Download Maps</h3>
+        <p>Cell service is spotty in most parks. Download offline maps on AllTrails before you go.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- YouTube Video -->
+  <a name="video"></a>
+  <div id="video-section" class="content-block">
+    <h2>See Utah From Above</h2>
+    <p>A stunning aerial tour of Utah's national parks:</p>
+    <div id="video-wrapper">
+      <iframe
+        width="700"
+        height="394"
+        src="https://www.youtube.com/embed/9ZOML_RBcQU"
+        title="Utah National Parks Aerial"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Tableau Embed -->
+  <a name="tableau"></a>
+  <div id="tableau-section" class="content-block">
+    <h2>Utah Outdoor Recreation Data</h2>
+    <p>National park visitor trends across the US:</p>
+    <div class='tableauPlaceholder' id='viz1' style='position: relative'>
+      <noscript>
+        <a href='#'>
+          <img alt='National Park Visits' src='https://public.tableau.com/static/images/Na/NationalParks_16/NationalParkVisits/1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='NationalParks_16/NationalParkVisits' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+      </object>
+    </div>
+    <script type='text/javascript'>
+      var divElement = document.getElementById('viz1');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      vizElement.style.width='700px';
+      vizElement.style.height='527px';
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+  </div>
+
+  <!-- Back to top -->
+  <div id="footer">
+    <a href="#top">↑ Back to Top</a>
+    <span>&nbsp;·&nbsp;</span>
+    <a href="index.html">← Back to Resume</a>
+    <span>&nbsp;·&nbsp;</span>
+    <a href="app.html">Try the Utah Guessing Game →</a>
+  </div>
+
+</body>
+</html>
