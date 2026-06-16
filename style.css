@@ -1,0 +1,114 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & BACKGROUNDS
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    margin: 20px;
+    background-color: #fdfdfd;
+}
+
+/* Custom background class specifically for your Home Page */
+.homebg {
+    background-color: #f4f7f6; 
+    border-top: 5px solid #002e5d; /* Subtle BYU Blue top accent line */
+}
+
+/* ==========================================================================
+   2. NAVIGATION & LINKS
+   ========================================================================== */
+a {
+    color: #002e5d; /* BYU Blue */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #004488;
+}
+
+/* Space out the top navigation items */
+body > a {
+    margin: 0 5px;
+}
+
+/* ==========================================================================
+   3. HEADINGS & TYPOGRAPHY
+   ========================================================================== */
+h1 {
+    color: #002e5d;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #111111;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Text alignment utility classes */
+.justify {
+    text-align: justify;
+    max-width: 600px;
+}
+
+.bold {
+    font-weight: bold;
+    color: #002e5d;
+}
+
+/* ==========================================================================
+   4. IMAGES
+   ========================================================================== */
+img {
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    /* Responsive sizing defaults */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Specific class option for controlling the layout of your portrait */
+.profile-pic {
+    width: 150px;
+    height: auto;
+}
+
+/* ==========================================================================
+   5. RESUME LISTS & LAYOUT
+   ========================================================================== */
+/* Main categories (Education, Experience, Skills) */
+.resumeListHeading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #002e5d;
+    margin-top: 25px;
+    list-style-type: none; /* Removes numbers if you use <ul> or <ol> */
+}
+
+/* Nested list items inside categories */
+.resumeListHeading ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.resumeListHeading ul li {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #444444;
+    list-style-type: square; /* Clean bullet style */
+    margin-bottom: 5px;
+}
+
+/* Replaces the need for 15 empty <p>&nbsp;</p> tags at the bottom */
+#ski {
+    padding-bottom: 400px;
+}
